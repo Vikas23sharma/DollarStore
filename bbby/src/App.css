@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+.searchbar::placeholder{
+ text-align: center;
+ color: black;
+ font-size: 15px;
+  
+}
+
+.navcomp:hover{
+  color: chartreuse;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.navcomp{
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.head{
+  color: darkblue;
+  size: 40px;
+}
+
+.name{
+  color:#012755;
+  font-size: 25px;
+  /* background-color: black; */
+}
+
+.head{
+  color: #012755;
+  font-size: 40px;
+}
