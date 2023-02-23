@@ -19,7 +19,9 @@ const Login = () => {
             method: 'post',
             url: 'https://reqres.in/api/login',
             data: {email,password}
-          }).then((res)=>login(res.data.token))
+          }).then((res)=>{
+            alert("Login Successful")
+            login(res.data.token)})
           
     }
    

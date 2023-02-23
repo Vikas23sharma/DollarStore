@@ -1,12 +1,13 @@
-import { Box, Center, Flex, Img, Input } from '@chakra-ui/react'
+import { Box, Center, Flex, Img, Input, InputRightElement, InputGroup } from '@chakra-ui/react'
 import { Icon } from '@chakra-ui/react'
 import Hamburger from 'hamburger-react'
 import React from 'react'
 import { AiOutlineUser } from 'react-icons/ai'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { Link as Routerlink } from 'react-router-dom'
-import {Authcontext} from '../context/Authcontextprovider'
+import { Authcontext } from '../context/Authcontextprovider'
 import { useContext } from 'react'
+import {BsSearch} from 'react-icons/bs'
 
 
 const Burger = () => { return <Icon as={Hamburger} /> }
@@ -19,9 +20,9 @@ const Burger = () => { return <Icon as={Hamburger} /> }
 
 
 const Navbar = () => {
-    const{logout,isAuth}=useContext(Authcontext)
+    const { logout, isAuth } = useContext(Authcontext)
     return (
-        <Box style={{width:"100%",position:"fixed",top:"0",marginBottom:"1%"}}>
+        <Box style={{ width: "100%", position: "fixed", top: "0", marginBottom: "1%" }}>
             <Box style={{ padding: "5px", backgroundColor: "chartreuse", color: "black" }}><Center>
                 Our Easter Sale Is Here.Shop Now!!
             </Center></Box>
@@ -40,9 +41,13 @@ const Navbar = () => {
                     <Burger />
                     <Routerlink to={'/'}><img width={100} height={50} src='https://stocknews.com/wp-content/uploads/2017/04/bed-bath-beyond-bbby-logo.jpg' alt='logo' /></Routerlink>
                 </Box>
-                <Input className='searchbar' padding="1%" borderRadius={20} placeholder="What Product Can We Help You Find?" width="60%"></Input>
+                <InputGroup>
+                    <Input className='searchbar' padding="1%" borderRadius={20} placeholder="What Product Can We Help You Find?" width="60%"></Input>
+                    <InputRightElement children={<BsSearch color='green.500' />} />
+                </InputGroup>
+
                 <Box style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <b><Routerlink style={{ textDecoration:"none",color:'black'}} to={'/login'}>SIGNIN</Routerlink></b>
+                    <b><Routerlink style={{ textDecoration: "none", color: 'black' }} to={'/login'}>SIGNIN</Routerlink></b>
                     <AiOutlineUser size={40} />
                     <AiOutlineShoppingCart size={40} />
                 </Box>
@@ -59,7 +64,7 @@ const Navbar = () => {
                 <b className='navcomp'>Furniture</b>
                 <b className='navcomp'>Health</b>
                 <b className='navcomp'>Gift</b>
-                {!isAuth?"":(<b onClick={logout} className='navcomp'>Logout</b>)}
+                {!isAuth ? "" : (<b onClick={logout} className='navcomp'>Logout</b>)}
             </Flex>
         </Box>
     )

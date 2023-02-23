@@ -19,7 +19,8 @@ const Register = () => {
             method: 'post',
             url: 'https://reqres.in/api/register',
             data: { email, password }
-        }).then((res) => register(res.data.token))
+        }).then((res) =>{ alert("User Registration Successful")
+            register(res.data.token)} )
 
     }
 
