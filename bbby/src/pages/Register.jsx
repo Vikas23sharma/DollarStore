@@ -28,12 +28,12 @@ const Register = () => {
 
 
     return (
-        <Box marginTop={"18%"} backgroundColor={"#f8f8f8"}>
-            <Flex style={{ backgroundColor: "white", padding: "2%", width: "40%", margin: "auto", marginTop: "2%", flexDirection: "column" }}>
+        <Box  backgroundColor={"#f8f8f8"}>
+            <Flex style={{ backgroundColor: "white", padding: "2%", width: "30%", margin: "auto", marginTop: "2%", flexDirection: "column" }}>
                 <Img src='https://b3h2.scene7.com/is/image/BedBathandBeyond/WR_deskstop_22_07_2022?$content$&wid=1280' />
                 <Heading style={{ color: "#0040ff" }}>Create Account</Heading>
-                <Input onChange={(e) => setEmail(e.target.value)} type={"email"} marginBottom={"1%"} padding={"3%"} placeholder='Enter Email' />
-                <Input onChange={(e) => setPassword(e.target.value)} type={"password"} marginBottom={"1%"} padding={"3%"} placeholder='Enter Password' />
+                <Input marginTop={"2%"} onChange={(e) => setEmail(e.target.value)} type={"email"} marginBottom={"2%"} padding={"3%"} placeholder='Enter Email' />
+                <Input marginTop={"2%"} onChange={(e) => setPassword(e.target.value)} type={"password"} marginBottom={"2%"} padding={"3%"} placeholder='Enter Password' />
                 <Button onClick={handleLogin} fontSize={"20px"} border={"0px"} backgroundColor={"#0040ff"} color="white" padding={"3%"}>SIGN UP</Button>
                 <br></br>
                 <Link style={{ color: "#0040ff" }} to={'/login'}>ALREADY HAVE AN ACCOUNT</Link>
