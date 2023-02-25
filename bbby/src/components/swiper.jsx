@@ -32,31 +32,31 @@ export default function Wiper() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+          <img src="https://bestfurniture.in/wp-content/uploads/9-300x300.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+          <img src="https://shop.kindermann.de/erp/KCO/avs/3/3005/3005000881/04_Bilder/3005000881_300x300px_1.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+          <img src="https://cdn.shopify.com/s/files/1/0036/4806/1509/products/800aed066dd3ef62957134c1558cafae9af99aa3_square2959443_1_1000x.jpg?v=1676642931" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+          <img src="https://bestfurniture.in/wp-content/uploads/9-300x300.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+          <img src="https://m.media-amazon.com/images/I/41VhvMPS0qL._SX300_SY300_QL70_ML2_.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+          <img src="https://m.media-amazon.com/images/I/61usqj4MYmL.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+          <img src="https://priceinall.com/wp-content/uploads/2022/01/Samsung-Galaxy-S22-ultra-Burgundy-color-300x300.jpg" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+          <img src="https://johnsonbros.co.za/wp-content/uploads/2020/03/kitchen-300x300.png?resolution=732,2.625" />
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+          <img src="https://cdn.shopify.com/s/files/1/0074/1454/6468/products/distress-dome-wall-art_300x300.jpg?v=1644415353" />
         </SwiperSlide>
       </Swiper>
     </>
