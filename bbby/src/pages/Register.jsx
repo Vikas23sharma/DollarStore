@@ -7,20 +7,30 @@ import { AiFillFacebook } from 'react-icons/ai'
 import axios from 'axios'
 import { Authcontext } from '../context/Authcontextprovider'
 import { Navigate,Link } from 'react-router-dom'
+import { useToast } from '@chakra-ui/react'
+
 
 const Register = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
     const { register, isReg } = useContext(Authcontext)
-
+    const toast=useToast()
     const handleLogin = () => {
         axios({
             method: 'post',
             url: 'https://reqres.in/api/register',
             data: { email, password }
-        }).then((res) =>{ alert("User Registration Successful")
-            register(res.data.token)} )
+        }).then((res) =>{ 
+            register(res.data.token)})
+            return  toast({
+                title: 'Account created.',
+                description: "We've created your account for you.",
+                status: 'success',
+                duration: 5000,
+                isClosable: true,
+                position:'top'
+              })
 
     }
 

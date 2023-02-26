@@ -4,10 +4,11 @@ import { useContext } from 'react'
 import { Navigate } from 'react-router-dom'
 
 const Privateroute = ({ children }) => {
-    const { isAuth } = useContext(Authcontext)
+    const { isAuth, isAdmin } = useContext(Authcontext)
 
-    if (!isAuth) { return <Navigate to={'/login'} /> }
-    
+    if (!isAuth&&!isAdmin) { return <Navigate to={'/login'} /> }
+    if (!isAdmin&&!isAuth) { return <Navigate to='/adminlogin' /> }
+
     return children
 }
 

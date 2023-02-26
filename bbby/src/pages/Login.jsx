@@ -7,12 +7,14 @@ import {AiFillFacebook} from 'react-icons/ai'
 import axios from 'axios'
 import {Authcontext} from '../context/Authcontextprovider'
 import { Link, Navigate } from 'react-router-dom'
+import { useToast } from '@chakra-ui/react'
 
 const Login = () => {
     const[email,setEmail]=useState("")
     const[password,setPassword]=useState("")
 
     const{login,isAuth}=useContext(Authcontext)
+    const toast=useToast()
 
     const handleLogin=()=>{
         axios({
@@ -20,11 +22,20 @@ const Login = () => {
             url: 'https://reqres.in/api/login',
             data: {email,password}
           }).then((res)=>{
-            alert("Login Successful")
+            // alert("Login Successful")
             login(res.data.token)})
+            return  toast({
+              title: 'Login Successful',
+              description: "Happy Shopping",
+              status: 'success',
+              duration: 5000,
+              isClosable: true,
+              position:'top'
+            })
           
     }
    
+    
     if(isAuth){return <Navigate to={'/'} />}
 
 
@@ -37,7 +48,10 @@ const Login = () => {
         <Input marginTop={"2%"} onChange={(e)=>setPassword(e.target.value)} type={"password"} marginBottom={"2%"} padding={"3%"} placeholder='Enter Password'/>
         <Button onClick={handleLogin} fontSize={"20px"} border={"0px"} backgroundColor={"#0040ff"} color="white" padding={"3%"}>SIGN IN</Button>
         <br></br>
-        <Link style={{color:"#0040ff"}} to={'/register'}>CREATE YOUR BbbY ACCOUNT</Link>
+        <Link style={{color:"#0040ff"}} to={'/register'}>CREATE ACCOUNT</Link>
+        <br></br>
+        <Link style={{color:"#0040ff"}} to={'/adminlogin'}>LOGIN AS ADMIN</Link>
+
         <br></br>
         <Box marginBottom={"1%"} display={"flex"} alignItems="center" justifyContent={"center"} padding={"1%"} border={"1px solid grey"}>
         <AiFillApple size={30}/>

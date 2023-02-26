@@ -5,10 +5,11 @@ import React, { useState } from 'react'
 import { AiOutlineUser } from 'react-icons/ai'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import {BsSearch} from 'react-icons/bs'
-import { Link as Routerlink } from 'react-router-dom'
+import { Link, Link as Routerlink } from 'react-router-dom'
 import { Authcontext } from '../context/Authcontextprovider'
 import { useContext } from 'react'
-import logo from './rat.png'
+import logo from './log1.png'
+import log from './log2.png'
 import axios from 'axios'
 
 
@@ -23,7 +24,7 @@ const Burger = () => { return <Icon as={Hamburger} /> }
 
 const Navbar = () => {
     const[search,setSearch]=useState("")
-    const { logout, isAuth } = useContext(Authcontext)
+    const { logout, isAuth,isAdmin,adminlogout } = useContext(Authcontext)
 
     const handleSearch=(e)=>{
         axios.get(`https://dummyjson.com/products/search?q=${search}`)
@@ -57,7 +58,7 @@ const Navbar = () => {
             }}>
                 <Box style={{ width:"10%",display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <Burger />
-                    <Routerlink to={'/'}><img width={100} height={50} src={logo} alt='logo' /></Routerlink>
+                    <Routerlink to={'/'}><img width={100} height={50} src={log} alt='logo' /></Routerlink>
 
                 </Box>
                 
@@ -68,22 +69,25 @@ const Navbar = () => {
                 <Box style={{width:"10%", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                     <b><Routerlink style={{ textDecoration: "none", color: 'black' }} to={'/login'}>SIGNIN</Routerlink></b>
                     <AiOutlineUser size={40} />
-                    <AiOutlineShoppingCart size={40} />
+                    <Link to={'/cart'}><AiOutlineShoppingCart size={40} /></Link>
                 </Box>
             </Flex>
             <Flex style={{ background: "black", color: "whitesmoke", padding: "1%", justifyContent: "space-evenly", border: "1px solid black" }} className='Nav'>
                 <b><Routerlink className='navcomp' to={'/'} >Home</Routerlink></b>
-                <b><Routerlink className='navcomp' to={'/products'}>MarketPlace</Routerlink></b>
+                <b><Routerlink className='navcomp' to={'/products'}>All in 1</Routerlink></b>
+                <b><Routerlink className='navcomp' to={'/products/furniture'}>Furniture</Routerlink></b>
+                <b><Routerlink className='navcomp' to={'/products/laptops'}>Gadgets</Routerlink></b>
                 <b><Routerlink className='navcomp' to={'/register'}>Register</Routerlink></b>
                 <b className='navcomp'>Kitchen</b>
                 <b className='navcomp'>Dining</b>
                 <b className='navcomp'>Storage&Cleaning</b>
                 <b className='navcomp'>Home Decor</b>
                 <b className='navcomp'>Windows&Curtains</b>
-                <b className='navcomp'>Furniture</b>
                 <b className='navcomp'>Health</b>
-                <b className='navcomp'>Gift</b>
+                {/* <b className='navcomp'>Gift</b> */}
+                {!isAdmin?(<b className='navcomp'>Gift</b>):(<Routerlink to={"/adminDashboard"}><b className='navcomp'>Dashboard</b></Routerlink>)}
                 {!isAuth ? "" : (<b onClick={logout} className='navcomp'>Logout</b>)}
+                {!isAdmin ? "" : (<b onClick={adminlogout} className='navcomp'>Logout</b>)}
             </Flex>
         </Box>
     )

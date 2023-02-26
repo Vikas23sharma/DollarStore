@@ -45,7 +45,7 @@
 }
 
 .navcomp:hover{
-  color: chartreuse;
+  color: rgb(127, 255, 0);
   text-decoration: underline;
   cursor: pointer;
 }

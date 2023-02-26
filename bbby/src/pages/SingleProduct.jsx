@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 // import { Img } from '@chakra-ui/react'
-import { Box, Flex, Text, Heading, Img, Button,Spinner } from '@chakra-ui/react'
-
+import { Box, Flex, Text, Heading, Img, Button, Spinner } from '@chakra-ui/react'
+import { IoIosArrowBack } from 'react-icons/io'
+import { Cartcontext } from '../context/Cartcontext'
 
 const SingleProduct = () => {
   const [product, setProduct] = useState({})
   const [loading, setLoading] = useState(false)
-
+  const { cartData, setCartData } = useContext(Cartcontext)
 
   const { id } = useParams()
   const fetchAndUpdateData = async (id) => {
@@ -34,23 +35,30 @@ const SingleProduct = () => {
     fetchAndUpdateData(id)
   }, [id])
 
-  if(loading){return <Spinner
-    thickness='4px'
-    speed='0.65s'
-    emptyColor='gray.200'
-    color='blue.500'
-    size='xl'
-    marginTop={"5%"}
-  /> }
+  const handleCartData = () => {
+    setCartData([...cartData,product])
+  }
+
+  if (loading) {
+    return <Spinner
+      thickness='4px'
+      speed='0.65s'
+      emptyColor='gray.200'
+      color='blue.500'
+      size='xl'
+      marginTop={"5%"}
+    />
+  }
 
   return (
-    <>
+    <Box textAlign={"left"}>
+      <Link to={"/products"}><Button leftIcon={<IoIosArrowBack />} marginLeft="7%" color={"chartreuse"} backgroundColor={"black"} padding={"1%"}>Back</Button></Link>
       <Flex justifyContent={"space-evenly"} padding={"3%"}>
         <Box width={"35%"} boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px" padding={"2%"} border={"0px solid gray"}>
           {<Img boxSize={500} src={product.thumbnail} />}
         </Box>
-        <Box width={"60%"}>
-          <Heading>{product.title}</Heading>
+        <Box textAlign={"center"} width={"60%"}>
+          <Heading marginBottom={"4%"}>{product.title}</Heading>
           <Text color={"rgb(100, 200, 0)"} fontSize={"xl"}>{product.description}</Text>
           <Text color={"rgb(100, 200, 0)"} noOfLines={5} fontSize={"xl"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent a tellus quis justo ultrices elementum. Curabitur aliquam placerat nulla et lacinia. Suspendisse tellus eros, varius id consequat in, ultrices vitae enim. Curabitur non euismod nulla, vitae feugiat nisi. Integer facilisis sit amet justo nec fermentum. Praesent nec euismod est. Donec euismod et mi non dignissim. Phasellus rutrum orci mi, ac bibendum augue aliquam vitae. Fusce eget nulla dui. Integer imperdiet felis nec purus imperdiet, a maximus ipsum laoreet. Suspendisse sollicitudin luctus justo in pharetra. Aliquam vulputate velit id sodales convallis. Aenean efficitur augue sed nunc molestie, nec pharetra risus dapibus. </Text>
           <hr style={{ color: "black", height: "20px" }} />
@@ -62,10 +70,10 @@ const SingleProduct = () => {
             <Text fontSize={"2xl"}><span style={{ color: "rgb(100, 200, 0)" }}>Discount:</span>{product.discountPercentage}%</Text>
             <Text fontSize={"2xl"}><span style={{ color: "rgb(100, 200, 0)" }}>Left in Stock:</span>{product.stock}</Text>
           </Box>
-          <Button color={"chartreuse"} backgroundColor={"black"} padding={"1%"}>ADD TO CART</Button>
+          <Button onClick={handleCartData} color={"chartreuse"} backgroundColor={"black"} padding={"1%"}>ADD TO CART</Button>
         </Box>
       </Flex>
-    </>
+    </Box>
   )
 }
 

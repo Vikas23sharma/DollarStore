@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 // import './App.css';
 import { Box, Heading, Img, Button, Text, Spinner, Center, Input } from '@chakra-ui/react'
 import axios from 'axios'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Wiper from '../components/swiper'
 import {
   Accordion,
@@ -16,13 +16,12 @@ import Footer from '../components/Footer'
 
 
 
-const Products = () => {
+const Watch = () => {
   const [products, setProducts] = useState([])
   const [brandproduct, setBrandproduct] = useState([])
   const [loading, setLoading] = useState(false)
   const [page, setPage] = useState(0)
   const [total, setTotal] = useState(0)
-  
 
 
 
@@ -32,7 +31,7 @@ const Products = () => {
 
   const fetchAndUpdateData = (page) => {
     setLoading(true)
-    axios.get(`https://dummyjson.com/products?limit=30&skip=${page * 30}`)
+    axios.get(`https://dummyjson.com/products/category/mens-watches`)
       .then((res) => {
         setLoading(false)
         console.log(res.data)
@@ -96,7 +95,6 @@ const Products = () => {
   useEffect(() => {
     fetchAndUpdateData(page)
   }, [page])
-  
 
 
   if (loading) {
@@ -235,4 +233,4 @@ const Products = () => {
   )
 }
 
-export default Products
+export default Watch

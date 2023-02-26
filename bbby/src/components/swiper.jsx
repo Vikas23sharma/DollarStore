@@ -12,6 +12,8 @@ import "./swiper.css";
 // import required modules
 import { EffectCoverflow, Pagination } from "swiper";
 
+import { Link } from "react-router-dom";
+
 export default function Wiper() {
   return (
     <>
@@ -31,14 +33,22 @@ export default function Wiper() {
         modules={[EffectCoverflow, Pagination]}
         className="mySwiper"
       >
+
         <SwiperSlide>
-          <img src="https://bestfurniture.in/wp-content/uploads/9-300x300.jpg" />
+          <Link to="/products/furniture">
+            <img src="https://bestfurniture.in/wp-content/uploads/9-300x300.jpg" />
+          </Link>
+        </SwiperSlide>
+
+        <SwiperSlide>
+          <Link to="/products/laptops">
+            <img src="https://static.dezeen.com/uploads/2019/07/apple-mac-book-pro-butterfly-keyboard-rumour-sq-300x300.jpg" />
+          </Link>
         </SwiperSlide>
         <SwiperSlide>
-          <img src="https://shop.kindermann.de/erp/KCO/avs/3/3005/3005000881/04_Bilder/3005000881_300x300px_1.jpg" />
-        </SwiperSlide>
-        <SwiperSlide>
+          <Link to="/products/watches">
           <img src="https://cdn.shopify.com/s/files/1/0036/4806/1509/products/800aed066dd3ef62957134c1558cafae9af99aa3_square2959443_1_1000x.jpg?v=1676642931" />
+          </Link>
         </SwiperSlide>
         <SwiperSlide>
           <img src="https://bestfurniture.in/wp-content/uploads/9-300x300.jpg" />
