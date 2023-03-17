@@ -34,7 +34,7 @@
 </ul><ul>
 <li>User Authorization</li>
 </ul><h2>Setup</h2>
-<hr><p>Project Already Deployed On Netlify-https://vsdollarstore.netlify.app,no setup is required</p><h2>Usage</h2>
+<hr><p>Project Already Deployed On Netlify-https://vsdollarstore.netlify.app, no setup is required</p><h2>Usage</h2>
 <hr><p>User can browse for the products of his requirement,can quickly filter and sort the products as per need,add them to cart and checkout</p><h2>Project Status</h2>
 <hr><p>Completed</p><h2>Features that can be added</h2>
 <hr><ul>
