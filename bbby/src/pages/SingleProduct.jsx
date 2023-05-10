@@ -6,12 +6,13 @@ import { Link, useParams } from 'react-router-dom'
 import { Box, Flex, Text, Heading, Img, Button, Spinner } from '@chakra-ui/react'
 import { IoIosArrowBack } from 'react-icons/io'
 import { Cartcontext } from '../context/Cartcontext'
+import { useToast } from '@chakra-ui/react'
 
 const SingleProduct = () => {
   const [product, setProduct] = useState({})
   const [loading, setLoading] = useState(false)
   const { cartData, setCartData } = useContext(Cartcontext)
-
+  const toast=useToast()
   const { id } = useParams()
   const fetchAndUpdateData = async (id) => {
     setLoading(true)
@@ -37,6 +38,14 @@ const SingleProduct = () => {
 
   const handleCartData = () => {
     setCartData([...cartData,product])
+    return  toast({
+      title: 'Product Added Successfully',
+      description: "Happy Shopping",
+      status: 'success',
+      duration: 5000,
+      isClosable: true,
+      position:'top'
+    })
   }
 
   if (loading) {

@@ -1,14 +1,25 @@
 import React, { useContext } from 'react'
 import { Cartcontext } from '../context/Cartcontext'
 import { Box, Center, Img, Text, Heading, Flex, Grid, Button, Divider } from '@chakra-ui/react'
+import { useToast } from '@chakra-ui/react'
 // import { Grid } from 'swiper'
 
 const Cart = () => {
     const { cartData, setCartData } = useContext(Cartcontext)
+    const toast=useToast()
+
 
     const handleRemove = (id) => {
         const newData = cartData.filter((e) => e.id !== id)
         setCartData(newData)
+        return  toast({
+            title: 'Product Removed From Cart',
+            description: "",
+            status: 'error',
+            duration: 5000,
+            isClosable: true,
+            position:'top'
+          })
     }
     return (
         cartData.length === 0 ? (<Heading color={"chartreuse"} backgroundColor={"black"}>Start Shopping!!!<br></br>Your Cart Is Empty</Heading>) :
@@ -26,7 +37,7 @@ const Cart = () => {
                         </Box>
                     })}
                 </Grid>
-                <Flex justifyContent="flex-start" alignItems={"flex-start"} flexDirection={"column"} width={"20%"}>
+                <Flex textAlign={"center"} flexDirection={"column"} width={"20%"}>
                     <Heading color={"chartreuse"} backgroundColor={"black"}>Order Summary</Heading>
                     <hr ></hr>
                     {cartData.map((e) => {
@@ -35,7 +46,8 @@ const Cart = () => {
                             <hr />
                         </Box>
                     })}
-                    <Heading>Total=${cartData.reduce((acc, item) => { return acc + item.price }, 0)}</Heading>
+                    <Heading marginTop={"3%"}>Total=${cartData.reduce((acc, item) => { return acc + item.price }, 0)}</Heading>
+                    <Button margin={"auto"} width={"160px"} color={"chartreuse"} backgroundColor={"black"}>CHECKOUT</Button>
                 </Flex>
             </Flex>)
 

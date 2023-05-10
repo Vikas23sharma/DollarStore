@@ -46,7 +46,7 @@ const Register = () => {
                 <Input marginTop={"2%"} onChange={(e) => setPassword(e.target.value)} type={"password"} marginBottom={"2%"} padding={"3%"} placeholder='Enter Password' />
                 <Button onClick={handleLogin} fontSize={"20px"} border={"0px"} backgroundColor={"#0040ff"} color="white" padding={"3%"}>SIGN UP</Button>
                 <br></br>
-                <Link style={{ color: "#0040ff" }} to={'/login'}>ALREADY HAVE AN ACCOUNT</Link>
+                <Box margin={"2rem auto"}><Link style={{ color: "#0040ff" }} to={'/login'}>ALREADY HAVE AN ACCOUNT</Link></Box>
                 <br></br>
                 <Box marginBottom={"1%"} display={"flex"} alignItems="center" justifyContent={"center"} padding={"1%"} border={"1px solid grey"}>
                     <AiFillApple size={30} />

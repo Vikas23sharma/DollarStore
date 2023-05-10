@@ -39,9 +39,9 @@ const Laptops = () => {
         setProducts(res.data.products)
         setBrandproduct(res.data.products)
       })
-}
-  
-  const cancelFilters=()=>{
+  }
+
+  const cancelFilters = () => {
     setLoading(true)
     axios.get(`https://dummyjson.com/products?limit=30&skip=${page * 30}`)
       .then((res) => {
@@ -110,6 +110,7 @@ const Laptops = () => {
 
   return (
     <Box marginTop={"5%"}>
+      <Box margin={"auto"} width={"80%"}><img src='https://b3h2.scene7.com/is/image/BedBathandBeyond/FY23-FW05-BBB-US-0326-WEB-HP-C01-19-DSK-2?$content$&wid=1280&hei=530' /></Box>
       <Wiper />
       <Box marginTop={"5%"} display={"flex"} >
         <Box display={"flex"} flexDirection="column" border={"1px solid grey"} width={"20%"}>
@@ -228,7 +229,7 @@ const Laptops = () => {
         <Button padding={"1%"} border="0px" backgroundColor={"black"} color="chartreuse" fontSize={"15px"} marginRight={"1%"}>{page + 1}</Button >
         <Button padding={"1%"} border="0px" backgroundColor={"black"} color="chartreuse" fontSize={"15px"} marginRight={"1%"} isDisabled={page === lastpage} onClick={() => handlePage(1)}>Next</Button>
       </Box>
-      <Footer/>
+      <Footer />
     </Box>
   )
 }
