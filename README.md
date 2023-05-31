@@ -1,6 +1,6 @@
 # uttermost-rat-9889
 
-<h1>$$$TORE</h1>
+<h1>DOLLAR STORE</h1>
 <hr><p>It is a marketplace website clone from where the user can create account,sign in into his account,move to different section of the website through navbar, can filter and sort the products on the basis of different categories and price.On clicking on products will be redirected to the single product page from where the products can be added to cart,in cart section products will be updated automatically and total amount will also be calculated and if the user wants to remove products or checkout both the options are available and from the admin side new products can be added.</p><ul>
 <li>One Stop Solution for different products requirements</li>
 </ul><ul>
